@@ -12,7 +12,114 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
 </head>
-<body>
+<body> <ul id="vocabulary-list">
+  <!-- 住宿类型 -->
+  <li data-word="酒店" data-pinyin="jiǔ diàn" data-meaning="名词，提供住宿、餐饮、娱乐等服务的商业性场所" data-en="hotel" data-category="住宿类型">
+    <span class="word">酒店</span>
+    <span class="pinyin">jiǔ diàn</span>
+    <div class="details">
+      <p><strong>英文：</strong>hotel</p>
+      <p><strong>释义：</strong>提供住宿、餐饮、娱乐等服务的商业性场所，通常设施标准化，规模较大，服务流程规范。</p>
+      <p><strong>短语：</strong>五星级酒店、商务酒店、酒店前台、预订酒店</p>
+      <p class="example"><strong>例句：</strong>这家酒店位于市中心，交通十分便利。</p>
+    </div>
+  </li>
+
+  <li data-word="青年旅舍" data-pinyin="qīng nián lǚ shè" data-meaning="名词，以青年为主要服务对象的经济实惠住宿" data-en="youth hostel" data-category="住宿类型">
+    <span class="word">青年旅舍</span>
+    <span class="pinyin">qīng nián lǚ shè</span>
+    <div class="details">
+      <p><strong>英文：</strong>youth hostel</p>
+      <p><strong>释义：</strong>以青年为主要服务对象，提供经济实惠的住宿，多为多人共享房间，强调交流与互助的住宿场所。</p>
+      <p><strong>短语：</strong>国际青年旅舍、旅舍床位、旅舍公共区域</p>
+      <p class="example"><strong>例句：</strong>青年旅舍很受背包客欢迎，因为价格实惠且能认识新朋友。</p>
+    </div>
+  </li>
+
+  <!-- 房间类型 -->
+  <li data-word="单人间" data-pinyin="dān rén jiān" data-meaning="名词，供一人住宿的房间" data-en="single room" data-category="房间类型">
+    <span class="word">单人间</span>
+    <span class="pinyin">dān rén jiān</span>
+    <div class="details">
+      <p><strong>英文：</strong>single room</p>
+      <p><strong>释义：</strong>供一人住宿的房间，通常配备一张单人床，面积较小，设施简洁。</p>
+      <p><strong>短语：</strong>预订单人间、单人间价格、带窗单人间</p>
+      <p class="example"><strong>例句：</strong>我想预订一间单人间，住两晚。</p>
+    </div>
+  </li>
+
+  <!-- 其他词汇按相同格式继续添加 -->
+</ul>
+
+<!-- 添加分类筛选按钮 -->
+<div class="filter-buttons">
+  <button onclick="filterByCategory('all')">全部</button>
+  <button onclick="filterByCategory('住宿类型')">住宿类型</button>
+  <button onclick="filterByCategory('房间类型')">房间类型</button>
+  <button onclick="filterByCategory('房间设施')">房间设施</button>
+  <button onclick="filterByCategory('住宿服务')">住宿服务</button>
+</div>
+
+<!-- 添加交互脚本 -->
+<script>
+  // 分类筛选功能
+  function filterByCategory(category) {
+    const items = document.querySelectorAll('#vocabulary-list li');
+    items.forEach(item => {
+      if (category === 'all' || item.dataset.category === category) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // 点击显示/隐藏详细信息
+  document.querySelectorAll('#vocabulary-list li').forEach(item => {
+    item.addEventListener('click', function() {
+      const details = this.querySelector('.details');
+      details.style.display = details.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+</script>
+
+<style>
+  /* 基础样式 */
+  #vocabulary-list li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .word {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2c3e50;
+  }
+  .pinyin {
+    color: #7f8c8d;
+    margin-left: 10px;
+  }
+  .details {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+  }
+  .example {
+    font-style: italic;
+    color: #34495e;
+  }
+  .filter-buttons {
+    margin: 20px 0;
+  }
+  .filter-buttons button {
+    margin-right: 10px;
+    padding: 5px 10px;
+  }
+</style>
     <header>
         <div class="container header-container">
             <button id="theme-toggle" class="theme-toggle">🌛</button>
